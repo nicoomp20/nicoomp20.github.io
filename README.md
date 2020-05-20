@@ -1,7 +1,6 @@
 # Weather-App
+ -> access current location and display weather
+ -> change the temperature unit from Celsius to Fahrenheit
+ -> display 3 days forecast
 
-# Features:
-
-✔️  Access current location from Geolocation</br>
-✔️  Present current weather and 3 following-day weather forecasts</br>
-✔️  Temperature's unit switch between Celsius and Fahrenheit</br>
+  

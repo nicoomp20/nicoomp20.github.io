@@ -1,4 +1,4 @@
-//ELEMENTS
+// defining constants and elements to be used by functions  
 
 const iconElements = document.querySelector(".weather-icon");
 const notificationElement = document.querySelector(".notification");
@@ -7,10 +7,11 @@ const descElement = document.querySelector(".temperature-description p");
 const locationElement = document.querySelector(".location p");
 const timeElement = document.querySelector(".time p");
 
-let temp1 = 0;
-let temp2 = 0;
-let temp3 = 0;
+let temp1 = 0; // variable
+let temp2 = 0; // variable
+let temp3 = 0; // variable
 
+// default weather constant
 const weather = {
     temperature: {
         value: 18,
@@ -23,10 +24,10 @@ const weather = {
 };
 
 
-
+// defining the API constant
 const APIkey = "7a7d9d2fe192358ca8a1e766c1b8ad87";
 
-//Check if geolocation is supported
+//Check if geolocation is supported by the browser
 
 if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(setPosition, showError);
@@ -48,7 +49,7 @@ function setPosition(position) {
     getForecastWeather(latitude,longtitude);
 }
 
-//Get weather API
+//Get weather API - using functions from the API - https://openweathermap.org/api
 
 function getCurrentWeather(latitude,longtitude){
     let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longtitude}&units=metric&APPID=${APIkey}`;
@@ -72,7 +73,7 @@ function getCurrentWeather(latitude,longtitude){
 
 }
 
-//Get forecast weather
+//Get forecast weather - using fucntions from API
 function getForecastWeather(latitude,longtitude) {
     let api = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longtitude}&units=metric&APPID=${APIkey}`;
 
@@ -146,12 +147,12 @@ function displayWeather() {
     timeElement.innerHTML =  `<span>${new Date().toDateString()}</span><br>${new Date().toTimeString()}</br>`;
 }
 
-// C to F conversion
+// C to F conversion - defining a function celsiusToFahrenheit
 function celsiusToFahrenheit(temperature){
     return (temperature * 9/5) + 32;
 }
 
-// CHANGE TEMPERATURE UNIT
+// CHANGE TEMPERATURE UNIT by clicking the temperature button - event - click
 tempElement.addEventListener("click", function(){
     if(weather.temperature.value === undefined) return;
 
@@ -174,7 +175,7 @@ tempElement.addEventListener("click", function(){
     }
 });
 
-//Display forecast
+//Display forecast 3 days
 document.querySelector(".button").addEventListener("click", function () {
     if (document.getElementById("1").style.display === "none"){
 
